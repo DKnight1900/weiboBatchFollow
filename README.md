@@ -22,8 +22,10 @@
 				pageQuery(page + 1)
 			}
 		}
-		xhr.open('GET', `/api/container/getSecond?luicode=10000011&lfid=100505${uid}&uid=${uid}&containerid=100505${uid}_-_FOLLOWERS&page=${page}`)
-		xhr.send()
+		setTimeout(function() {
+			xhr.open("GET", `/api/container/getSecond?luicode=10000011&lfid=100505${uid}&uid=${uid}&containerid=100505${uid}_-_FOLLOWERS&page=${page}`);
+			xhr.send();
+		}, 2000)//请求太频繁会被ban，改为隔2s请求一次
 	}
 	pageQuery()
 })()
